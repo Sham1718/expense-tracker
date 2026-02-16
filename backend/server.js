@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import router from "./routes/transactionRoute.js";
+import authrouter from "./routes/authRoute.js";
 
 dotenv.config();
 connectDB();
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/transaction", router);
+app.use("/auth",authrouter);
 
 app.get("/", (req, res) => {
   res.send("api running");
