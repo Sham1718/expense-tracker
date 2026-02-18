@@ -15,10 +15,7 @@ const Login = () => {
         e.preventDefault();
         try{
         const res= await loginUser({email,password});
-        console.log(res);
         login(res.data.token);
-        
-        
         navigate("/");
         }catch(error){
             alert("login failed");

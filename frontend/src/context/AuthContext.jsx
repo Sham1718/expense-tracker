@@ -6,20 +6,17 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const localToken = localStorage.getItem("token");
 
     if (localToken) {
-      const decoded = jwtDecode(localToken);
-
-      if (decoded.exp * 1000 < Date.now()) {
-        logout();
-      } else {
-        setToken(localToken);
-        setUser(decoded);
-      }
+      setToken(localToken);
+      setUser(jwtDecode(localToken));
     }
+
+    setLoading(false);
   }, []);
 
   const login = (jwtToken) => {
@@ -40,6 +37,7 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     isAuthenticated: !!token,
+    loading,
   };
 
   return (
