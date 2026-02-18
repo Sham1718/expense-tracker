@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/transaction", router);
-app.use("/auth",authrouter);
+app.use("/api/auth",authrouter);
 
 app.get("/", (req, res) => {
   res.send("api running");
