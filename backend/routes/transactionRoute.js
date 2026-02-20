@@ -5,6 +5,7 @@ import protect from "../middleware/Protect.js";
 
 const router = express.Router();
 
+
 router.post("/",protect, createTransaction);
 router.get("/",protect,getTransactions);
 router.delete("/:id",protect,deleteTransaction)
