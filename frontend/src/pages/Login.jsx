@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
 import { loginUser } from '../api/auth';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
 
-    const[email,setEmail]=useState();
-    const[password,setPassword]=useState();
+    const[email,setEmail]=useState("");
+    const[password,setPassword]=useState("");
     const navigate=useNavigate();
     const{login}=useAuth();
 
@@ -52,7 +52,9 @@ const Login = () => {
 
         <p className="mt-3 text-sm">
           Don't have an account?{" "}
-          register
+          <Link to="/register" className="text-blue-500">
+            Register
+          </Link>
         </p>
       </form>
     </div>

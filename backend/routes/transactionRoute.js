@@ -9,7 +9,7 @@ router.post("/",protect, createTransaction);
 router.get("/",protect,getTransactions);
 router.delete("/:id",protect,deleteTransaction)
 router.get("/summary",protect,getSummary);
-router.get("/month",protect,getMonthlyAnalytics);
+router.get("/monthly",protect,getMonthlyAnalytics);
 router.get("/category",protect,category);
 
 export default router;
