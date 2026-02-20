@@ -6,13 +6,14 @@ import {BrowserRouter,Routes ,Route} from "react-router-dom"
 import ProtectedRoute from './component/ProtectedRoute'
 import TransactionList from './component/TransactionList'
 import TransactionForm from './component/TransactionForm'
+import Navbar from './component/Navbar'
 
 function App() {
   
 
   return (
     <BrowserRouter>
-
+    <Navbar/>
     <Routes>
       <Route path='/login' element={<Login/>}/>
       <Route path='/' element={<ProtectedRoute><DashBoard/></ProtectedRoute>}/>

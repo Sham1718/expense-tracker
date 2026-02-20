@@ -23,15 +23,12 @@ const TransactionForm = ({ onSuccess }) => {
         category,
       });
 
-      // Clear form
       setTitle("");
       setAmount("");
       setCategory("");
       setType("expense");
 
-      // Refresh dashboard
       if (onSuccess) onSuccess();
-
     } catch (error) {
       console.log(error.response?.data);
       alert(
@@ -43,15 +40,18 @@ const TransactionForm = ({ onSuccess }) => {
   return (
     <form
       onSubmit={handleCreateTransaction}
-      className="mb-6 bg-white shadow p-4 rounded"
+      className="space-y-6"
     >
-      <h2 className="text-lg font-bold mb-3">Add Transaction</h2>
+      <h2 className="text-xl font-semibold text-gray-200">
+        Add Transaction
+      </h2>
 
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+
         <input
           type="text"
           placeholder="Title"
-          className="border p-2 rounded"
+          className="bg-[#0f0f0f] border border-[#1f1f1f] text-white placeholder-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
@@ -60,14 +60,14 @@ const TransactionForm = ({ onSuccess }) => {
         <input
           type="number"
           placeholder="Amount"
-          className="border p-2 rounded"
+          className="bg-[#0f0f0f] border border-[#1f1f1f] text-white placeholder-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           required
         />
 
         <select
-          className="border p-2 rounded"
+          className="bg-[#0f0f0f] border border-[#1f1f1f] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
@@ -78,7 +78,7 @@ const TransactionForm = ({ onSuccess }) => {
         <input
           type="text"
           placeholder="Category"
-          className="border p-2 rounded"
+          className="bg-[#0f0f0f] border border-[#1f1f1f] text-white placeholder-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           required
@@ -87,9 +87,9 @@ const TransactionForm = ({ onSuccess }) => {
 
       <button
         type="submit"
-        className="mt-3 bg-black text-white px-4 py-2 rounded"
+        className="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-2 rounded-lg font-medium shadow-lg"
       >
-        Add
+        Add Transaction
       </button>
     </form>
   );
