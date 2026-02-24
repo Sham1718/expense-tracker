@@ -11,8 +11,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: "https://expense-tracker-woad-tau-93.vercel.app",
-  credentials: true
+  origin: "*"
 }));
 app.use(express.json());
 
