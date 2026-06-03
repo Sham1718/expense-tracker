@@ -1,6 +1,6 @@
 # Expense Tracker – Full Stack MERN Application
 
-## Brief One-Line Summary
+##Summary
 A full-stack MERN Expense Tracker application with JWT authentication, transaction management, analytics dashboard, and a modern responsive UI.
 
 ---
